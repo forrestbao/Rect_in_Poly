@@ -1,6 +1,7 @@
 # Rect_in_Poly
 Pack rectangles into a polygon as many as possible
 
+![Cover](./hello.png)
 
 # The origin 
 I recently ran into an interesting problem when remodeling my house: how to pack as many rectangles (such as tiles or floor planks) as possible into a polygon area. 
@@ -22,7 +23,7 @@ One more thing that made this easy is that it's pretty much all integers. In the
 
 # Examples 
 
-You can find the solutions to the example problem in the code in the folder [test](./test). One plot is one candidate solution. In each plot, the rectangles that can fit into the polygon are filled in green. If you browse over the solutions, you will notice that the polygon rotates and/or the offset changes. The filenames are `{angle}_{offset}.png`. 
+You can find the solutions to the example problem in the code in the folder [test](./test). One plot is one candidate solution. In each plot, the rectangles that can fit into the polygon are filled in green. The red bricks are the array generated. If you go over the solutions, you will notice that the polygon rotates and/or the brick offset changes. The filenames are `{angle}_{offset}.png`. 
 
 Some examples: 
 
