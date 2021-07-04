@@ -1,25 +1,24 @@
 # Rect_in_Poly
-Pack rectangles into a polygon as many as possible
+Pack identical rectangles into a polygon as many as possible, **continously in the same orientation**
 
 ![Cover](./hello.png)
 
 # The origin 
-I recently ran into an interesting problem when remodeling my house: how to pack as many rectangles (such as tiles or floor planks) as possible into a polygon area. 
+I recently ran into an interesting problem when remodeling my house: how to pack as many **identical** rectangles (such as tiles or floor planks) as possible into a polygon area, **continuously of the same orientation**. 
 
-Althought [packing problem](https://en.wikipedia.org/wiki/Packing_problems) is classic in computer science, I couldn't find a solver easily. So I wrote the code myself. 
+Althought [packing problem](https://en.wikipedia.org/wiki/Packing_problems) is classic in computer science, I couldn't find a solver easily -- although there is [a Fortran solver](https://www.ime.usp.br/~egbirgin/packing/). So I wrote the code myself. 
 
-My problem is slightly easier than general packing problem in that all rectangles are of the same size. However, one restriction is that rows of tiles need to have the same offset in order to be visually appealing. 
+My problem is slightly easier than general packing problem in that all rectangles are of the same size, and they need to form a **continous, closed region**. However, one restriction is that rows of tiles need to have the same indentation in order to be visually appealing. 
 
 # The code 
 
 I use a brutal-force solution as the search space is manageable given that all rectangles are of the same size and the row offset (default resolution 1 unit or 1 foot) is a constant. 
 
-I first create an array of rectangles, and then check how many rectangles can fit into the polygon. To search for the best solution, I  vary the row offset and rotate the polygon (default angular resolution: 15 degrees). The angle and offset that yield the maximal count of rectangles are returned, and visualized. 
+I first create an array of rectangles, and then check how many rectangles can fit into the polygon. To search for the best solution, I  vary the row indentation and rotate the polygon (default angular resolution: 15 degrees). The angle and offset that yield the maximal count of rectangles are returned, and visualized. I also move around the array to find their best fit with the polygon. 
 
 To check whether a rectangle fits into a polygon, I take advantage of `matplotlib`'s `Path` class. It has a function called [`contain_points()`](https://matplotlib.org/stable/api/path_api.html#matplotlib.path.Path.contains_points). 
 
 One more thing that made this easy is that it's pretty much all integers. In the US, most tiles and planks are of rounded feet. 
-
 
 # Examples 
 
