@@ -120,34 +120,38 @@ def solve(polygon, panel_size, angle_resolution=15):
                         print ("Maximal number of panels is", max_panel)
                         print ("When angle is {}, indentation is {}, offset is ({}, {})".
                                format(best_angle, best_indentation, best_offset_x, best_offset_y))
-
+                    ###
                     # plot_polygon(polygon)
                     # plot_rectangles(Array, panel_size)
                     # plot_rectangles(okay_panels, panel_size, color='lime', facecolor='lime')
                     # matplotlib.pyplot.savefig("_".join(map(str, [angle, indentation, offset_x, offset_y]))+'.png')
                     # matplotlib.pyplot.close()
+                    ###
 
     # Visualize best result 
     plot_polygon(best_polygon)
     plot_rectangles(best_array, panel_size)
     plot_rectangles(best_panels, panel_size, color='k', facecolor='lime')
 
+    matplotlib.pyplot.savefig("_".join(map(str, [angle, indentation, offset_x, offset_y]))+'.png')
+    matplotlib.pyplot.close()
+
     return max_panel, best_angle, best_indentation, best_offset_x, best_offset_y
 
 #%% 
 if __name__ == "__main__":
-    panel_size = (3,1)
-    polygon = [(1,1), (5,3), (10,2), (8,8), (4,6), (2,5)]
+    # panel_size = (3,1)
+    # polygon = [(1,1), (5,3), (10,2), (8,8), (4,6), (2,5)] # your sample
+    panel_size = (2,1)
+    polygon=[(0,0), (11,0), (11,11), (5,17), (0,11)] # my sample
 
+    ###
     # plot_polygon(polygon)
     # plot_rectangles(Array, panel_size)
     # okay_panels = contains_rectangles(Array, panel_size, polygon)
     # plot_rectangles(okay_panels, panel_size, color='lime', facecolor='lime')
-
-
+    ###
     solve(polygon, panel_size)  
-
     
-# %%
 
  
